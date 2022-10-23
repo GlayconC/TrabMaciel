@@ -18,8 +18,37 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('students', 'ApiController@getAllStudents');
-Route::get('students/{id}', 'ApiController@getStudent');
-Route::post('students', 'ApiController@createStudent');
-Route::put('students/{id}', 'ApiController@updateStudent');
-Route::delete('students/{id}','ApiController@deleteStudent');
+// Alunos
+
+Route::get('students', 'App\Http\Controllers\ApiController@getAllStudents');
+Route::get('students/{id}', 'App\Http\Controllers\ApiController@getStudent');
+Route::post('students', 'App\Http\Controllers\ApiController@createStudent');
+Route::put('students/{id}', 'App\Http\Controllers\ApiController@updateStudent');
+Route::delete('students/{id}','App\Http\Controllers\ApiController@deleteStudent');
+
+// Salas 
+
+Route::get('classrooms', 'App\Http\Controllers\ApiController@getAllClassrooms');
+Route::get('classrooms/{id}', 'App\Http\Controllers\ApiController@getClassroom');
+Route::post('classrooms', 'App\Http\Controllers\ApiController@createClassroom');
+Route::put('classrooms/{id}', 'App\Http\Controllers\ApiController@updateClassroom');
+Route::delete('classrooms/{id}','App\Http\Controllers\ApiController@deleteClassroom');
+
+
+// Professores
+
+Route::get('teachers', 'App\Http\Controllers\ApiController@getAllTeachers');
+Route::get('teachers/{id}', 'App\Http\Controllers\ApiController@getTeacher');
+Route::post('teachers', 'App\Http\Controllers\ApiController@createTeacher');
+Route::put('teachers/{id}', 'App\Http\Controllers\ApiController@updateTeacher');
+Route::delete('teachers/{id}','App\Http\Controllers\ApiController@deleteTeacher');
+
+// Livros
+
+Route::get('books', 'App\Http\Controllers\ApiController@getAllBooks');
+Route::get('books/{id}', 'App\Http\Controllers\ApiController@getBook');
+Route::post('books', 'App\Http\Controllers\ApiController@createBook');
+Route::put('books/{id}', 'App\Http\Controllers\ApiController@updateBook');
+Route::delete('books/{id}','App\Http\Controllers\ApiController@deleteBook');
+
+
