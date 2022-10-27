@@ -11,8 +11,10 @@ use Illuminate\Http\Request;
 class ApiController extends Controller
 {
     public function getAllStudents() {
-        $students = Student::get()->toJson(JSON_PRETTY_PRINT);
-        return response($students, 200);
+        //$students = Student::get()->toJson(JSON_PRETTY_PRINT);
+        //return response($students, 200);
+        $data = Student::paginate(10);    
+        return response($data, 200);
       }
 
     public function createStudent(Request $request) {
@@ -71,8 +73,10 @@ class ApiController extends Controller
     }
 
     public function getAllBooks() {
-        $Books = Book::get()->toJson(JSON_PRETTY_PRINT);
-        return response($Books, 200);
+        //$Books = Book::get()->toJson(JSON_PRETTY_PRINT);
+        //return response($Books, 200);
+        $data = Book::paginate(10);    
+        return response($data, 200);
       }
     
     public function createBook(Request $request) {
@@ -131,8 +135,10 @@ class ApiController extends Controller
     }
     
     public function getAllTeachers() {
-        $Teachers = Teacher::get()->toJson(JSON_PRETTY_PRINT);
-        return response($Teachers, 200);
+       // $Teachers = Teacher::get()->toJson(JSON_PRETTY_PRINT);
+       // return response($Teachers, 200);
+       $data = Teacher::paginate(10);    
+       return response($data, 200);
       }
     
     public function createTeacher(Request $request) {
@@ -191,8 +197,10 @@ class ApiController extends Controller
     }
     
     public function getAllClassrooms() {
-        $Classrooms = Classroom::get()->toJson(JSON_PRETTY_PRINT);
-        return response($Classrooms, 200);
+        //$Classrooms = Classroom::get()->toJson(JSON_PRETTY_PRINT);
+        //return response($Classrooms, 200);
+        $data = Classroom::paginate(10);    
+        return response($data, 200);
       }
     
     public function createClassroom(Request $request) {
