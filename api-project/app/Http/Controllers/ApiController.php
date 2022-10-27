@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
+
+    public function searchStudent($name){
+      return Student::where("name","like","%".$name."%")->get();
+    }
+
     public function getAllStudents() {
         //$students = Student::get()->toJson(JSON_PRETTY_PRINT);
         //return response($students, 200);
@@ -30,7 +35,7 @@ class ApiController extends Controller
 
     public function getStudent($id) {
         if (Student::where('id', $id)->exists()) {
-            $student = Student::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            $student = Student::where('id', $id)->get();
             return response($student, 200);
           } else {
             return response()->json([
@@ -72,6 +77,10 @@ class ApiController extends Controller
           }
     }
 
+    public function searchBook($name){
+      return Book::where("name","like","%".$name."%")->get();
+    }
+
     public function getAllBooks() {
         //$Books = Book::get()->toJson(JSON_PRETTY_PRINT);
         //return response($Books, 200);
@@ -92,7 +101,7 @@ class ApiController extends Controller
     
     public function getBook($id) {
         if (Book::where('id', $id)->exists()) {
-            $Book = Book::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            $Book = Book::where('id', $id)->get();
             return response($Book, 200);
           } else {
             return response()->json([
@@ -133,6 +142,10 @@ class ApiController extends Controller
             ], 404);
           }
     }
+
+    public function searchTeacher($name){
+      return Teacher::where("name","like","%".$name."%")->get();
+    }
     
     public function getAllTeachers() {
        // $Teachers = Teacher::get()->toJson(JSON_PRETTY_PRINT);
@@ -154,7 +167,7 @@ class ApiController extends Controller
     
     public function getTeacher($id) {
         if (Teacher::where('id', $id)->exists()) {
-            $Teacher = Teacher::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            $Teacher = Teacher::where('id', $id)->get();
             return response($Teacher, 200);
           } else {
             return response()->json([
@@ -196,6 +209,10 @@ class ApiController extends Controller
           }
     }
     
+    public function searchClassroom($name){
+      return Classroom::where("name","like","%".$name."%")->get();
+    }
+
     public function getAllClassrooms() {
         //$Classrooms = Classroom::get()->toJson(JSON_PRETTY_PRINT);
         //return response($Classrooms, 200);
@@ -216,7 +233,7 @@ class ApiController extends Controller
     
     public function getClassroom($id) {
         if (Classroom::where('id', $id)->exists()) {
-            $Classroom = Classroom::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            $Classroom = Classroom::where('id', $id)->get();
             return response($Classroom, 200);
           } else {
             return response()->json([
